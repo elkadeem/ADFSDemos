@@ -1,7 +1,29 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.WsFederation;
+using System.Net;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = WsFederationDefaults.AuthenticationScheme;
+}).AddWsFederation(options => {
+    options.MetadataAddress = "https://adfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml";
+    options.Wtrealm = "https://localhost:7211";
+    options.BackchannelHttpHandler = new HttpClientHandler()
+    {
+        ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true,
+    };
+})
+.AddCookie();
 
 var app = builder.Build();
 
@@ -18,6 +40,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
