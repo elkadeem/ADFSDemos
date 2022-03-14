@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSFedAAD", "WSFedAAD\WSFedA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSFedCoreApp", "WSFedCoreApp\WSFedCoreApp.csproj", "{76C9FEAE-26E3-4F85-9270-831062CCA3C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenIdConnect", "OpenIdConnect", "{998F6F30-53B8-4ECA-A81D-F522CBAE1AEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIdConnectNetCore", "OpenIdConnectNetCore\OpenIdConnectNetCore.csproj", "{76065BA8-5E8D-4388-B718-21392DDDAF72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{76C9FEAE-26E3-4F85-9270-831062CCA3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76C9FEAE-26E3-4F85-9270-831062CCA3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76C9FEAE-26E3-4F85-9270-831062CCA3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76065BA8-5E8D-4388-B718-21392DDDAF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76065BA8-5E8D-4388-B718-21392DDDAF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76065BA8-5E8D-4388-B718-21392DDDAF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76065BA8-5E8D-4388-B718-21392DDDAF72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{76065BA8-5E8D-4388-B718-21392DDDAF72} = {998F6F30-53B8-4ECA-A81D-F522CBAE1AEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {458F15BF-4EA3-4F60-B0B8-3684B4D0209D}
