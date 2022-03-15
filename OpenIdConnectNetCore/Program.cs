@@ -12,21 +12,19 @@ var builder = WebApplication.CreateBuilder(args);
 ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
 builder.Services.AddAuthentication(options =>
-{
-    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-}).AddOpenIdConnect(options => {
-    options.MetadataAddress = "https://adfs.contoso.com/adfs/.well-known/openid-configuration";
-    options.ClientId = "9fed1d96-bf3f-4bb9-a283-234abd209f13";
-    //options.Scope.Add("");
-    //options.ClientSecret = "";
-    //options.Authority = "";
-    options.BackchannelHttpHandler = new HttpClientHandler()
-    {
-        ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true,
-    };
-})
-.AddCookie();
+        {
+            options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+        }).AddOpenIdConnect(options =>
+                {
+                    options.MetadataAddress = "https://adfs.contoso.com/adfs/.well-known/openid-configuration";
+                    options.ClientId = "9fed1d96-bf3f-4bb9-a283-234abd209f13";
+                    options.BackchannelHttpHandler = new HttpClientHandler()
+                    {
+                        ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true,
+                    };
+                })
+        .AddCookie();
 
 builder.Services.AddAuthorization(options =>
 {

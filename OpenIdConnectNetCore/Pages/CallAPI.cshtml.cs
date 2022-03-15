@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Identity.Client;
 using System.Net.Http.Headers;
 
 namespace OpenIdConnectNetCore.Pages
@@ -18,11 +19,19 @@ namespace OpenIdConnectNetCore.Pages
         }
         public async Task OnGet()
         {
-            TokenResult? token = await BadWay();
+            //TokenResult? token = await BadWay();
+
+            var cClient = ConfidentialClientApplicationBuilder.Create("26aa8499-8163-41df-9dc5-599c8359b24c")
+                .WithAdfsAuthority("https://adfs.contoso.com/adfs", false)
+                .WithClientSecret("eA6r6Y2uTnuViYOZhqdIgejWj-nLNXP1ImM-k1PC")
+                .Build();
+
+            var authenticationResult = await cClient.AcquireTokenForClient(new string[] { "https://localhost:7299/" })
+                 .ExecuteAsync();
 
             _httpClient.BaseAddress = new Uri("https://localhost:7297");
             _httpClient.DefaultRequestHeaders.Authorization
-                = new AuthenticationHeaderValue("Bearer", token.Access_Token);
+                = new AuthenticationHeaderValue("Bearer", authenticationResult.AccessToken);
             Result = await _httpClient.GetStringAsync("/WeatherForecast");
         }
 
