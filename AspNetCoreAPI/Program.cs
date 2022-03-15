@@ -16,10 +16,11 @@ builder.Services.AddAuthentication(options =>
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
-    options.Audience = "https://localhost:7297";
+    //options.Audience = "https://localhost:7299";
     options.MetadataAddress = "https://adfs.contoso.com/adfs/.well-known/openid-configuration";
     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-    {
+    {        
+        ValidAudiences = new string[] { "https://localhost:7299", "api://webapi" },
         ValidIssuer = "http://adfs.contoso.com/adfs/services/trust"
     };
     //Don't do this in production

@@ -5,13 +5,15 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSFedAAD", "WSFedAAD\WSFedAAD.csproj", "{AB9BA63B-1308-4A74-90BC-953E8E41735A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSFedCoreApp", "WSFedCoreApp\WSFedCoreApp.csproj", "{76C9FEAE-26E3-4F85-9270-831062CCA3C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WSFedCoreApp", "WSFedCoreApp\WSFedCoreApp.csproj", "{76C9FEAE-26E3-4F85-9270-831062CCA3C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenIdConnect", "OpenIdConnect", "{998F6F30-53B8-4ECA-A81D-F522CBAE1AEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIdConnectNetCore", "OpenIdConnectNetCore\OpenIdConnectNetCore.csproj", "{76065BA8-5E8D-4388-B718-21392DDDAF72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenIdConnectNetCore", "OpenIdConnectNetCore\OpenIdConnectNetCore.csproj", "{76065BA8-5E8D-4388-B718-21392DDDAF72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreAPI", "AspNetCoreAPI\AspNetCoreAPI.csproj", "{31556F31-B14A-46D0-9DF8-51E5A98AC7A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreAPI", "AspNetCoreAPI\AspNetCoreAPI.csproj", "{31556F31-B14A-46D0-9DF8-51E5A98AC7A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSALDemos", "MSALDemos\MSALDemos.csproj", "{A48367A3-2355-46E2-A863-3B6FD137D930}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{31556F31-B14A-46D0-9DF8-51E5A98AC7A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31556F31-B14A-46D0-9DF8-51E5A98AC7A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31556F31-B14A-46D0-9DF8-51E5A98AC7A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A48367A3-2355-46E2-A863-3B6FD137D930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A48367A3-2355-46E2-A863-3B6FD137D930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A48367A3-2355-46E2-A863-3B6FD137D930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A48367A3-2355-46E2-A863-3B6FD137D930}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
