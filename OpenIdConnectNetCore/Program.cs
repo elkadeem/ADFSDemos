@@ -5,8 +5,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
+
+ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
 builder.Services.AddAuthentication(options =>
 {
@@ -30,8 +33,10 @@ builder.Services.AddAuthorization(options =>
     // By default, all incoming requests will be authorized according to the default policy.
     options.FallbackPolicy = options.DefaultPolicy;
 });
-builder.Services.AddRazorPages()
-    .AddMicrosoftIdentityUI();
+
+builder.Services.AddRazorPages();
+
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
